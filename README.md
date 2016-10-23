@@ -1,24 +1,26 @@
-Archetype Component
-===================
+Archetype
+=========
 
-The Sylius Archetype component efficiently creates objects from a pattern of different attributes, options and variants.
+The Fosyl Archetype component for PHP and Sylius efficiently creates objects from a pattern of different attributes, options and variants.
 
 
-Sylius
+What is Sylius?
 ------
 
 Modern ecommerce for PHP and Symfony2. Visit [Sylius.org](http://sylius.org).
 
+
 Documentation
 -------------
 
-Documentation is available on [**docs.sylius.org**](http://docs.sylius.org/en/latest/components/Archetype/index.html).
+Old documentation is available in the [**Sylius GitHub repository**](https://github.com/Sylius/Sylius/tree/5fe713825330268a02df5fef981865a382fe11fd/docs/components/Archetype).
 
+New documentation will be written for the 0.20 release.
 
 Contributing
 ------------
 
-All instructions for contributing to Sylius can be found in the [Contributing Guide](http://docs.sylius.org/en/latest/contributing/index.html).
+Contributions can be made directly to this [repository](http://github.com/friendsofsylius/archetype).
 
 Support
 -------
@@ -35,16 +37,16 @@ Sylius on Twitter
 Bug Tracking
 ------------
 
-If you find a bug, please refer to the [Reporting a Bug](http://docs.sylius.org/en/latest/contributing/code/bugs.html) guide.
+Bugs can be reported to [repository](http://github.com/friendsofsylius/archetype/issues).
 
 MIT License
 -----------
 
-License can be found [here](https://github.com/Sylius/Archetype/blob/master/LICENSE).
+License can be found [here](https://github.com/friendsofsylius/archetype/blob/master/LICENSE).
 
 
 Authors
 -------
 
 The component was originally created by [Adam Elsodaney](http://archfizz.com).
-See the list of [contributors](https://github.com/Sylius/Archetype/contributors).
+See the list of [contributors](https://github.com/friendsofsylius/archetype/contributors).

@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Sylius package.
+ * This file is part of the Fosyl Archetype package.
  *
- * (c) Paweł Jędrzejewski
+ * (c) Adam Elsodaney
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -17,6 +17,7 @@ use Sylius\Component\Product\Model\ProductOptionInterface;
 use Sylius\Component\Resource\Model\CodeAwareInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
+use Sylius\Component\Variant\Model\OptionInterface;
 
 /**
  * The archetype defines the template for new objects to be created from
@@ -70,37 +71,37 @@ interface ArchetypeInterface extends
     /**
      * Returns all prototype options.
      *
-     * @return Collection|ProductOptionInterface[]
+     * @return Collection|OptionInterface[]|ProductOptionInterface[]|object[]
      */
     public function getOptions();
 
     /**
      * Sets all prototype options.
      *
-     * @param Collection|ProductOptionInterface[] $options
+     * @param Collection|OptionInterface[]|ProductOptionInterface[]|object[] $options
      */
     public function setOptions(Collection $options);
 
     /**
-     * @param ProductOptionInterface $option
+     * @param OptionInterface|ProductOptionInterface|object $option
      */
-    public function addOption(ProductOptionInterface $option);
+    public function addOption($option);
 
     /**
      * Removes option from prototype.
      *
-     * @param ProductOptionInterface $option
+     * @param OptionInterface|ProductOptionInterface|object $option
      */
-    public function removeOption(ProductOptionInterface $option);
+    public function removeOption($option);
 
     /**
      * Checks whether prototype has given option.
      *
-     * @param ProductOptionInterface $option
+     * @param OptionInterface|ProductOptionInterface|object $option
      *
      * @return bool
      */
-    public function hasOption(ProductOptionInterface $option);
+    public function hasOption($option);
 
     /**
      * @return bool
