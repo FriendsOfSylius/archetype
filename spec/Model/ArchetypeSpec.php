@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Sylius package.
+ * This file is part of the Fosyl Archetype package.
  *
- * (c) Paweł Jędrzejewski
+ * (c) Adam Elsodaney
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,13 +13,16 @@ namespace spec\Sylius\Component\Archetype\Model;
 
 use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
+use Sylius\Component\Archetype\Model\Archetype;
 use Sylius\Component\Archetype\Model\ArchetypeInterface;
 use Sylius\Component\Attribute\Model\AttributeInterface;
-use Sylius\Component\Variation\Model\OptionInterface;
+use Sylius\Component\Product\Model\ProductOptionInterface;
 
 /**
  * @author Adam Elsodaney <adam.elso@gmail.com>
  * @author Gonzalo Vilaseca <gvilaseca@reiss.co.uk>
+ *
+ * @mixin Archetype
  */
 final class ArchetypeSpec extends ObjectBehavior
 {
@@ -31,7 +34,7 @@ final class ArchetypeSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Sylius\Component\Archetype\Model\Archetype');
+        $this->shouldHaveType(Archetype::class);
     }
 
     function it_is_an_Archetype()
@@ -97,13 +100,13 @@ final class ArchetypeSpec extends ObjectBehavior
         $this->getOptions()->shouldReturn($attributes);
     }
 
-    function it_adds_option(OptionInterface $attribute)
+    function it_adds_option($attribute)
     {
         $this->addOption($attribute);
         $this->hasOption($attribute)->shouldReturn(true);
     }
 
-    function it_removes_option(OptionInterface $attribute)
+    function it_removes_option($attribute)
     {
         $this->addOption($attribute);
         $this->hasOption($attribute)->shouldReturn(true);

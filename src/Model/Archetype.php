@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Sylius package.
+ * This file is part of the Fosyl Archetype package.
  *
- * (c) Paweł Jędrzejewski
+ * (c) Adam Elsodaney
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,9 +14,9 @@ namespace Sylius\Component\Archetype\Model;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Attribute\Model\AttributeInterface;
+use Sylius\Component\Product\Model\ProductOptionInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 use Sylius\Component\Resource\Model\TranslatableTrait;
-use Sylius\Component\Variation\Model\OptionInterface;
 
 /**
  * The archetype model.
@@ -48,7 +48,7 @@ class Archetype implements ArchetypeInterface
     protected $attributes;
 
     /**
-     * @var Collection|OptionInterface[]
+     * @var Collection|ProductOptionInterface[]|object[]
      */
     protected $options;
 
@@ -167,7 +167,7 @@ class Archetype implements ArchetypeInterface
     /**
      * {@inheritdoc}
      */
-    public function addOption(OptionInterface $option)
+    public function addOption($option)
     {
         $this->options->add($option);
     }
@@ -175,7 +175,7 @@ class Archetype implements ArchetypeInterface
     /**
      * {@inheritdoc}
      */
-    public function removeOption(OptionInterface $option)
+    public function removeOption($option)
     {
         $this->options->removeElement($option);
     }
@@ -183,7 +183,7 @@ class Archetype implements ArchetypeInterface
     /**
      * {@inheritdoc}
      */
-    public function hasOption(OptionInterface $option)
+    public function hasOption($option)
     {
         return $this->options->contains($option);
     }

@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Sylius package.
+ * This file is part of the Fosyl Archetype package.
  *
- * (c) Paweł Jędrzejewski
+ * (c) Adam Elsodaney
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -16,7 +16,6 @@ use Sylius\Component\Archetype\Model\ArchetypeSubjectInterface;
 use Sylius\Component\Attribute\Model\AttributeSubjectInterface;
 use Sylius\Component\Attribute\Model\AttributeValueInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
-use Sylius\Component\Variation\Model\VariableInterface;
 
 /**
  * @author Paweł Jędrzejewski <pawel@sylius.org>
@@ -73,12 +72,32 @@ class ArchetypeBuilder implements ArchetypeBuilderInterface
 
     /**
      * @param ArchetypeInterface $archetype
-     * @param VariableInterface  $subject
+     * @param object             $subject
      */
-    private function createAndAssignOptions(ArchetypeInterface $archetype, VariableInterface $subject)
+    private function createAndAssignOptions(ArchetypeInterface $archetype, $subject)
     {
         foreach ($archetype->getOptions() as $option) {
+            if (! $this->isSubjectToOptions($subject)) {
+                throw new \BadMethodCallException(sprintf('%s does not have method "addOption".', get_class($subject)));
+            }
+
             $subject->addOption($option);
         }
+    }
+
+    /**
+     * Duck-typing check.
+     *
+     * @param object $subject
+     *
+     * @throws \InvalidArgumentException
+     */
+    private function isSubjectToOptions($subject)
+    {
+        if (! is_object($subject)) {
+            throw new \InvalidArgumentException('Expected object, got %s.', gettype($subject));
+        }
+
+        return method_exists($subject, 'addOption');
     }
 }

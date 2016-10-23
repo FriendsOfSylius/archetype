@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Sylius package.
+ * This file is part of the Fosyl Archetype package.
  *
- * (c) Paweł Jędrzejewski
+ * (c) Adam Elsodaney
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,17 +13,20 @@ namespace spec\Sylius\Component\Archetype\Builder;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use Sylius\Component\Archetype\Builder\ArchetypeBuilder;
 use Sylius\Component\Archetype\Builder\ArchetypeBuilderInterface;
 use Sylius\Component\Archetype\Model\ArchetypeInterface;
 use Sylius\Component\Archetype\Model\ArchetypeSubjectInterface;
 use Sylius\Component\Attribute\Model\AttributeInterface;
 use Sylius\Component\Attribute\Model\AttributeValueInterface;
+use Sylius\Component\Product\Model\ProductOptionInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
-use Sylius\Component\Variation\Model\OptionInterface;
 
 /**
  * @author Paweł Jędrzejewski <pawel@sylius.org>
  * @author Adam Elsodaney <adam.elso@gmail.com>
+ *
+ * @mixin ArchetypeBuilder
  */
 final class ArchetypeBuilderSpec extends ObjectBehavior
 {
@@ -34,7 +37,7 @@ final class ArchetypeBuilderSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Sylius\Component\Archetype\Builder\ArchetypeBuilder');
+        $this->shouldHaveType(ArchetypeBuilder::class);
     }
 
     function it_is_an_Archetype_Builder()
@@ -58,7 +61,7 @@ final class ArchetypeBuilderSpec extends ObjectBehavior
         ArchetypeSubjectInterface $subject,
         AttributeInterface $attribute,
         AttributeValueInterface $attributeValue,
-        OptionInterface $option
+        $option
     ) {
         $archetype->getAttributes()->willReturn([$attribute])->shouldBeCalled();
         $archetype->getOptions()->willReturn([$option])->shouldBeCalled();
@@ -82,7 +85,7 @@ final class ArchetypeBuilderSpec extends ObjectBehavior
         ArchetypeSubjectInterface $subject,
         AttributeInterface $attribute,
         AttributeValueInterface $attributeValue,
-        OptionInterface $option
+        $option
     ) {
         $archetype->getAttributes()->willReturn([$attribute])->shouldBeCalled();
         $archetype->getOptions()->willReturn([$option])->shouldBeCalled();
