@@ -31,7 +31,8 @@
         "sylius/resource": "^1.0 | ^0.19"
     },
     "require-dev": {
-        "phpspec/phpspec": "^4.0"
+        "phpspec/phpspec": "^4.0",
+        "phpunit/phpunit": "^6.3"
     },
     "config": {
         "bin-dir": "bin"
@@ -40,7 +41,10 @@
         "psr-4": { "Fosyl\\ArchetypeOne\\": "src/" }
     },
     "autoload-dev": {
-        "psr-4": { "spec\\Fosyl\\ArchetypeOne\\": "spec/" }
+        "psr-4": {
+            "spec\\Fosyl\\ArchetypeOne\\": "spec/",
+            "test\\Fosyl\\ArchetypeOne\\": "test/"
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

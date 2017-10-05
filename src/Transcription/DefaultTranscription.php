@@ -1,6 +1,6 @@
 <?php
 
-namespace Fosyl\ArchetypeOne\Builder;
+namespace Fosyl\ArchetypeOne\Transcription;
 
 use Fosyl\ArchetypeOne\Archetype;
 use Fosyl\ArchetypeOne\Transcription;

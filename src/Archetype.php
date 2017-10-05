@@ -9,6 +9,11 @@ namespace Fosyl\ArchetypeOne;
 interface Archetype
 {
     /**
+     * @return string
+     */
+    public function getIdentificationCode(): string;
+
+    /**
      * @return Attribute[]
      */
     public function getAllAttributes(): array;
@@ -18,7 +23,7 @@ interface Archetype
      *
      * @return Attribute
      */
-    public function getSingleAttribute(string $identifier): Attribute;
+    public function getSingleAttribute(string $identifier): ?Attribute;
 
     /**
      * @param Attribute $attribute
@@ -33,5 +38,5 @@ interface Archetype
     /**
      * @return Archetype
      */
-    public function getParent(): Archetype;
+    public function getParent(): ?Archetype;
 }

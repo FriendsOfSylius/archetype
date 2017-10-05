@@ -12,5 +12,5 @@ interface Marker
     /**
      * @return Value
      */
-    public function getValue(): Value;
+    public function getValue(): ?Value;
 }

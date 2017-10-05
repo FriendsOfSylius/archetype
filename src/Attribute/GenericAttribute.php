@@ -3,6 +3,7 @@
 namespace Fosyl\ArchetypeOne\Attribute;
 
 use Fosyl\ArchetypeOne\Attribute;
+use Fosyl\ArchetypeOne\Value;
 use Fosyl\ArchetypeOne\Value\AttributeValue;
 
 class GenericAttribute implements Attribute
@@ -36,9 +37,9 @@ class GenericAttribute implements Attribute
     /**
      * @return Value
      */
-    public function getValue(): Value
+    public function getValue(): ?Value
     {
-        // TODO: Implement getValue() method.
+        return $this->value;
     }
 
     /**

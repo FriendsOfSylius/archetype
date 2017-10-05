@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Fosyl\ArchetypeOne\Builder;
+namespace Fosyl\ArchetypeOne\Transcription;
 
 use Fosyl\ArchetypeOne\Transcription;
 use Sylius\Component\Archetype\Model\ArchetypeInterface;
