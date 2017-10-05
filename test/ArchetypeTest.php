@@ -3,28 +3,30 @@
 namespace test\Fosyl\ArchetypeOne;
 
 use Fosyl\ArchetypeOne\Archetype;
-use Fosyl\ArchetypeOne\Attribute;
-use Fosyl\ArchetypeOne\Transcription\DefaultTranscription;
-use Fosyl\ArchetypeOne\Option;
+use Fosyl\ArchetypeOne\Archetype\OptionsAndAttributesArchetype;
+use Fosyl\ArchetypeOne\Marker\Facet\GenericFacet;
+use Fosyl\ArchetypeOne\Marker\Selection\GenericSelection;
+use Fosyl\ArchetypeOne\Transcriber\GenericTranscriber;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
 class ArchetypeTest extends TestCase
 {
-    public function testThatItWorks()
+    public function testThatNewArchetypesAreTranscribed()
     {
-        $shoeArchetype = new Archetype\OptionsAndAttributesArchetype('Shoe', [
-            'color' => new Attribute\GenericAttribute('color'),
+        $shoeArchetype = new OptionsAndAttributesArchetype('Shoe', [
+            'color' => new GenericFacet('color'),
         ], [
-            'size'  => new Option\GenericOption('size'),
+            'size'  => new GenericSelection('size'),
         ]);
 
-        $showProduct = Archetype\OptionsAndAttributesArchetype::blank('Trainers', $shoeArchetype);
-        Assert::assertNull($showProduct->getSingleAttribute('color'));
+        $shoeProduct = OptionsAndAttributesArchetype::blank('Trainers', $shoeArchetype);
+        Assert::assertNull($shoeProduct->getSingleFacet('color'));
 
-        $transcription = new DefaultTranscription();
-        $transcription->express($showProduct);
+        $transcription = GenericTranscriber::quickInitialize();
+        $transcription->express($shoeProduct);
 
-        Assert::assertNotNull($showProduct->getSingleAttribute('color'));
+        Assert::assertNotNull($shoeProduct->getSingleFacet('color'));
+        Assert::assertNotNull($shoeProduct->getSingleSelection('size'));
     }
 }

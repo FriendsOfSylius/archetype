@@ -6,7 +6,7 @@ use Fosyl\ArchetypeOne\Archetype;
 use Fosyl\ArchetypeOne\Transcriptable;
 use Fosyl\ArchetypeOne\Builder\DefaultTranscription;
 use Fosyl\ArchetypeOne\Transcriber;
-use Fosyl\ArchetypeOne\Transcription;
+use Fosyl\ArchetypeOne\Transcriber;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -22,6 +22,6 @@ class DefaultBuilderSpec extends ObjectBehavior
 
     function it_is_an_archetype_builder()
     {
-        $this->shouldImplement(Transcription::class);
+        $this->shouldImplement(Transcriber::class);
     }
 }

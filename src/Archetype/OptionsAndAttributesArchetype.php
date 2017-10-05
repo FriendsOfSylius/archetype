@@ -3,35 +3,44 @@
 namespace Fosyl\ArchetypeOne\Archetype;
 
 use Fosyl\ArchetypeOne\Archetype;
-use Fosyl\ArchetypeOne\Attribute;
-use Fosyl\ArchetypeOne\Option;
+use Fosyl\ArchetypeOne\Marker\Facet;
+use Fosyl\ArchetypeOne\Marker\Selection;
+use Fosyl\ArchetypeOne\Composition;
+use Fosyl\ArchetypeOne\Variant;
 
-class OptionsAndAttributesArchetype implements Archetype
+class OptionsAndAttributesArchetype implements Archetype, Variant, Composition
 {
     /**
-     * @var
+     * @var string
      */
     private $identificationCode;
 
     /**
-     * @var array
+     * @var Facet[]
      */
-    private $attributes;
+    private $facets;
 
     /**
-     * @var array
+     * @var Selection[]
      */
-    private $options;
+    private $selections;
+
     /**
-     * @var Archetype
+     * @var null|Archetype
      */
     private $parent;
 
-    public function __construct($identificationCode, $attributes = [], $options = [], Archetype $parent = null)
+    /**
+     * @param string $identificationCode
+     * @param Facet[] $facets
+     * @param Selection[] $selections
+     * @param Archetype|null $parent
+     */
+    public function __construct($identificationCode, $facets = [], $selections = [], Archetype $parent = null)
     {
         $this->identificationCode = $identificationCode;
-        $this->attributes = $attributes;
-        $this->options = $options;
+        $this->facets = $facets;
+        $this->selections = $selections;
         $this->parent = $parent;
     }
 
@@ -49,37 +58,54 @@ class OptionsAndAttributesArchetype implements Archetype
     }
 
     /**
-     * @return Attribute[]
+     * @return Facet[]
      */
-    public function getAllAttributes(): array
+    public function getAllFacets(): array
     {
-        return $this->attributes;
+        return $this->facets;
     }
 
     /**
      * @param string $identifier
      *
-     * @return Attribute
+     * @return Facet
      */
-    public function getSingleAttribute(string $identifier): ?Attribute
+    public function getSingleFacet(string $identifier): ?Facet
     {
-        return $this->attributes[$identifier] ?? null;
+        return $this->facets[$identifier] ?? null;
     }
 
     /**
-     * @param Attribute $attribute
+     * @param Facet $attribute
      */
-    public function assignAttribute(Attribute $attribute)
+    public function assignFacet(Facet $attribute)
     {
-        $this->attributes[$attribute->getIdentificationCode()] = $attribute;
+        $this->facets[$attribute->getIdentificationCode()] = $attribute;
     }
 
     /**
-     * @return Option[]
+     * @return Selection[]
      */
-    public function getAllOptions(): array
+    public function getAllSelections(): array
     {
-        return $this->options;
+        return $this->selections;
+    }
+    /**
+     * @param string $identifier
+     *
+     * @return Selection
+     */
+    public function getSingleSelection(string $identifier): ?Selection
+    {
+        return $this->selections[$identifier];
+    }
+
+    /**
+     * @param Selection $selection
+     */
+    public function assignSelection(Selection $selection)
+    {
+        $this->selections[$selection->getIdentificationCode()] = $selection;
     }
 
     /**

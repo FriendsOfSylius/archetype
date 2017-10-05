@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Fosyl\ArchetypeOne\Transcription;
+namespace Fosyl\ArchetypeOne\Transcriber;
 
-use Fosyl\ArchetypeOne\Transcription;
+use Fosyl\ArchetypeOne\Transcriber;
 use Sylius\Component\Archetype\Model\ArchetypeInterface;
 use Sylius\Component\Archetype\Builder\ArchetypeBuilderInterface;
 use Sylius\Component\Archetype\Model\ArchetypeSubjectInterface;
@@ -23,7 +23,7 @@ use Sylius\Component\Resource\Factory\FactoryInterface;
  * @author Paweł Jędrzejewski <pawel@sylius.org>
  * @author Adam Elsodaney <adam.elso@gmail.com>
  */
-class SyliusLegacyTranscription implements Transcription
+class SyliusLegacyTranscriber implements Transcriber
 {
     /**
      * Attribute value repository.

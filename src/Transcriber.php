@@ -10,7 +10,7 @@ namespace Fosyl\ArchetypeOne;
  *
  * @author Adam Elsodaney <adam.elso@gmail.com>
  */
-interface Transcription
+interface Transcriber
 {
     /**
      * @param Archetype $unit

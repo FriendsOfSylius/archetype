@@ -1,5 +1,5 @@
-Archetype
-=========
+Archetype One
+=============
 
 The Fosyl Archetype component for PHP and Sylius efficiently creates objects from a pattern of different attributes, options and variants.
 

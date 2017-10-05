@@ -14,29 +14,7 @@ interface Archetype
     public function getIdentificationCode(): string;
 
     /**
-     * @return Attribute[]
-     */
-    public function getAllAttributes(): array;
-
-    /**
-     * @param string $identifier
-     *
-     * @return Attribute
-     */
-    public function getSingleAttribute(string $identifier): ?Attribute;
-
-    /**
-     * @param Attribute $attribute
-     */
-    public function assignAttribute(Attribute $attribute);
-
-    /**
-     * @return Option[]
-     */
-    public function getAllOptions(): array;
-
-    /**
-     * @return Archetype
+     * @return null|Archetype
      */
     public function getParent(): ?Archetype;
 }

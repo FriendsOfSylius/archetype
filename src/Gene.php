@@ -5,12 +5,12 @@ namespace Fosyl\ArchetypeOne;
 /**
  * @author Adam Elsodaney <adam.elso@gmail.com>
  */
-interface Value
+interface Gene
 {
     /**
      * @return mixed
      */
-    public function getName();
+    public function getValue();
 
     /**
      * @return string
