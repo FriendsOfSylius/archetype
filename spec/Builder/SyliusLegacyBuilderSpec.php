@@ -9,12 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Sylius\Component\Archetype\Builder;
+namespace spec\Fosyl\ArchetypeOne\Builder;
 
+use Fosyl\ArchetypeOne\Transcriber;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Sylius\Component\Archetype\Builder\ArchetypeBuilder;
 use Sylius\Component\Archetype\Builder\ArchetypeBuilderInterface;
+use Sylius\Component\Archetype\Builder\SyliusLegacyBuilder;
 use Sylius\Component\Archetype\Model\ArchetypeInterface;
 use Sylius\Component\Archetype\Model\ArchetypeSubjectInterface;
 use Sylius\Component\Attribute\Model\AttributeInterface;
@@ -28,7 +29,7 @@ use Sylius\Component\Resource\Factory\FactoryInterface;
  *
  * @mixin ArchetypeBuilder
  */
-final class ArchetypeBuilderSpec extends ObjectBehavior
+final class SyliusLegacyBuilderSpec extends ObjectBehavior
 {
     function let(FactoryInterface $attributeValueFactory)
     {
@@ -37,13 +38,19 @@ final class ArchetypeBuilderSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(ArchetypeBuilder::class);
+        $this->shouldHaveType(SyliusLegacyBuilder::class);
     }
 
     function it_is_an_Archetype_Builder()
     {
+        $this->shouldImplement(Transcriber::class);
+    }
+
+    function it_is_a_legacy_Archetype_Builder()
+    {
         $this->shouldImplement(ArchetypeBuilderInterface::class);
     }
+
 
     function it_does_not_build_the_subject_if_it_has_no_archetype(ArchetypeSubjectInterface $subject)
     {

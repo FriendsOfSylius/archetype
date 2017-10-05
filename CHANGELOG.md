@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+### v1.0.0
+
+Archetype One
+
 ### v0.20.0
 
 This package has since been deprecated by Sylius and removed from 

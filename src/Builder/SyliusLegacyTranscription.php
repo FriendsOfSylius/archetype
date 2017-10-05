@@ -9,9 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Component\Archetype\Builder;
+namespace Fosyl\ArchetypeOne\Builder;
 
+use Fosyl\ArchetypeOne\Transcription;
 use Sylius\Component\Archetype\Model\ArchetypeInterface;
+use Sylius\Component\Archetype\Builder\ArchetypeBuilderInterface;
 use Sylius\Component\Archetype\Model\ArchetypeSubjectInterface;
 use Sylius\Component\Attribute\Model\AttributeSubjectInterface;
 use Sylius\Component\Attribute\Model\AttributeValueInterface;
@@ -21,7 +23,7 @@ use Sylius\Component\Resource\Factory\FactoryInterface;
  * @author Paweł Jędrzejewski <pawel@sylius.org>
  * @author Adam Elsodaney <adam.elso@gmail.com>
  */
-class ArchetypeBuilder implements ArchetypeBuilderInterface
+class SyliusLegacyTranscription implements Transcription
 {
     /**
      * Attribute value repository.
@@ -31,19 +33,24 @@ class ArchetypeBuilder implements ArchetypeBuilderInterface
     protected $attributeValueFactory;
 
     /**
-     * Constructor.
-     *
+     * @var ArchetypeBuilderInterface
+     */
+    private $syliusBuilder;
+
+    /**
+     * @param ArchetypeBuilderInterface $syliusBuilder
      * @param FactoryInterface $attributeValueFactory
      */
-    public function __construct(FactoryInterface $attributeValueFactory)
+    public function __construct(ArchetypeBuilderInterface $syliusBuilder, FactoryInterface $attributeValueFactory)
     {
         $this->attributeValueFactory = $attributeValueFactory;
+        $this->syliusBuilder = $syliusBuilder;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function build(ArchetypeSubjectInterface $subject)
+    public function express(ArchetypeSubjectInterface $subject)
     {
         if (null === $archetype = $subject->getArchetype()) {
             return;
