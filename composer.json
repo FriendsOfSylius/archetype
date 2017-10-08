@@ -24,15 +24,12 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-
-        "sylius/attribute": "^1.0 | ^0.19",
-        "sylius/product": "^1.0 | ^0.19",
-        "sylius/resource": "^1.0 | ^0.19"
+        "php": "^7.1"
     },
     "require-dev": {
         "phpspec/phpspec": "^4.0",
-        "phpunit/phpunit": "^6.3"
+        "phpunit/phpunit": "^6.3",
+        "sylius/product": "^1.0"
     },
     "config": {
         "bin-dir": "bin"

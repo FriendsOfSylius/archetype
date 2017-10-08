@@ -11,6 +11,7 @@
 
 namespace Fosyl\ArchetypeOne\Transcriber;
 
+use Fosyl\ArchetypeOne\Archetype;
 use Fosyl\ArchetypeOne\Transcriber;
 use Sylius\Component\Archetype\Model\ArchetypeInterface;
 use Sylius\Component\Archetype\Builder\ArchetypeBuilderInterface;
@@ -50,7 +51,7 @@ class SyliusLegacyTranscriber implements Transcriber
     /**
      * {@inheritdoc}
      */
-    public function express(ArchetypeSubjectInterface $subject)
+    public function express(Archetype $subject)
     {
         if (null === $archetype = $subject->getArchetype()) {
             return;

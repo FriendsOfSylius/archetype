@@ -2,7 +2,6 @@
 
 namespace test\Fosyl\ArchetypeOne;
 
-use Fosyl\ArchetypeOne\Archetype;
 use Fosyl\ArchetypeOne\Archetype\OptionsAndAttributesArchetype;
 use Fosyl\ArchetypeOne\Marker\Facet\GenericFacet;
 use Fosyl\ArchetypeOne\Marker\Selection\GenericSelection;
